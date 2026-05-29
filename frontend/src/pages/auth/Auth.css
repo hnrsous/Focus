@@ -1,0 +1,225 @@
+/* Auth.css */
+
+.auth {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card */
+.auth-card {
+    width: 450px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.9rem;
+    border-radius: 3rem;
+    background: var(--color-bg-main);
+    animation: auth-enter 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes auth-enter {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.auth-header {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.auth-eyebrow {
+    color: var(--color-text-main);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.1rem;
+    opacity: 0.25;
+    margin-bottom: 4px;
+}
+
+.auth-title {
+    font-size: 1.9rem;
+    color: var(--color-text-main);
+    line-height: 1.15;
+}
+
+/* Form */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.auth-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.auth-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 900;
+    opacity: 0.35;
+}
+
+.auth-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.auth-input-icon {
+    color: var(--color-text-main);
+    position: absolute;
+    left: 13px;
+    opacity: .3;
+    display: flex;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 0.9rem 1rem 0.9rem 2.9rem;
+    border-radius: 1rem;
+    background: var(--color-bg-secondary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    transition: background 0.15s, transform 0.2s;
+}
+
+.auth-input::placeholder {
+    opacity: 0.25;
+}
+
+.auth-input-toggle {
+    position: absolute;
+    right: 12px;
+    color: var(--color-text-main);
+    opacity: 0.22;
+    cursor: pointer;
+    display: flex;
+    transition: opacity 0.15s;
+}
+
+.auth-input-toggle:hover { opacity: 0.5; }
+
+/* Feedback */
+.auth-error {
+    color: rgb(185, 140, 145);
+    font-size: 0.74rem;
+    font-weight: 500;
+    padding: 0.65rem 0.9rem;
+    border-radius: 10px;
+    animation: shake 0.28s ease;
+    background: rgba(190, 55, 55, 0.07);
+}
+
+@keyframes shake {
+    0%,100% { transform: translateX(0); }
+    30%      { transform: translateX(-5px); }
+    70%      { transform: translateX(5px); }
+}
+
+.auth-success {
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: rgb(30, 130, 70);
+    padding: 0.65rem 0.9rem;
+    background: rgba(30, 130, 70, 0.07);
+    border-radius: 10px;
+}
+
+/* Submit */
+.auth-submit {
+    margin-top: 0.2rem;
+    width: 100%;
+    padding: 0.9rem;
+    border-radius: 14px;
+    background: var(--color-text-main);
+    color: var(--color-bg-main);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    transition: opacity 0.18s, transform 0.2s;
+}
+
+.auth-submit:hover:not(:disabled) {
+    opacity: 0.8;
+    transform: translateY(-1px);
+}
+
+.auth-submit:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+/* Spinner */
+.auth-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.25);
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.65s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Divider */
+.auth-divider {
+    height: 1px;
+    background: var(--color-bg-secondary);
+}
+
+/* Footer */
+.auth-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.auth-link-row {
+    font-size: 0.79rem;
+    color: var(--color-text-main);
+    opacity: 0.4;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.auth-link {
+    font-size: 0.79rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    opacity: 1;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    background: none;
+    transition: opacity 0.15s;
+}
+
+.auth-link:hover { opacity: 0.5; }
+
+.auth-link--subtle {
+    font-weight: 500;
+    opacity: 0.3;
+    text-decoration: none;
+}
+
+.auth-link--subtle:hover { opacity: 0.55; }

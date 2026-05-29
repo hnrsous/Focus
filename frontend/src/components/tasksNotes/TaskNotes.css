@@ -1,0 +1,104 @@
+/*TaskNotes.css*/
+
+.task-note-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(8px);
+    z-index: 10;
+    animation: fade-in .2s ease;
+}
+
+.task-note-popup {
+    width: 99%;
+    height: 99%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.4rem;
+    border-radius: 1.6rem;
+    background: var(--color-bg-main);
+    animation: popup-in .2s ease;
+}
+
+.task-note-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.task-note-header h2 {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.task-note-save {
+    cursor: pointer;
+    padding: .8rem 1rem;
+    border-radius: 10px;
+    font-size: .75rem;
+    font-weight: 700;
+    background: var(--color-bg-secondary);
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+.task-note-save:hover {
+    transform: scale(1.05);
+    background: var(--color-bg-hover);
+}
+
+.task-note-textarea {
+    flex: 1;
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: var(--color-bg-secondary);
+    color: var(--color-text-main);
+    font-size: .82rem;
+    font-weight: 500;
+    line-height: 1.6;
+    transition: background .2s ease;
+}
+
+.task-note-textarea:focus {
+    background: var(--color-bg-hover);
+}
+
+.task-note-textarea::placeholder {
+    opacity: .35;
+}
+
+@keyframes popup-in {
+    from {
+        opacity: 0;
+        transform: scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

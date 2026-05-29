@@ -1,0 +1,124 @@
+/* Pomodoro.css */
+
+.pomodoro {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: .6rem 1rem;
+    margin: 0 0 2px 0;
+    border-radius: 1.4rem;
+    background: linear-gradient(
+        90deg,
+        var(--color-bg-main),
+        var(--color-bg-secondary),
+        var(--color-bg-tertiary)
+    );
+    overflow: hidden;
+    animation: pomo-in 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes pomo-in {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TIME */
+.pomodoro--time {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+    min-width: 48px;
+}
+
+.pomodoro--time--urgent {
+    color: rgb(185, 144, 144);
+}
+
+/* BAR */
+.pomodoro--track {
+    flex: 1;
+    height: 3px;
+    border-radius: 999px;
+    background: var(--color-bg-hover);
+    overflow: hidden;
+}
+
+.pomodoro--fill {
+    height: 100%;
+    border-radius: 999px;
+    background: var(--color-text-main);
+    transition:
+        width 1s linear,
+        background 0.3s;
+}
+
+.pomodoro--fill--urgent {
+    background: rgb(200, 80, 80);
+}
+
+/* CONTROLS */
+.pomodoro--controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.pomodoro--btn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 1rem;
+
+    background: transparent;
+    color: var(--color-text-main);
+
+    opacity: 0.4;
+
+    transition:
+        background 0.15s,
+        opacity 0.15s,
+        transform 0.15s;
+}
+
+.pomodoro--btn:hover {
+    background: var(--color-bg-hover);
+    opacity: 0.85;
+    transform: scale(1.08);
+}
+
+.pomodoro--btn:active {
+    transform: scale(0.96);
+}
+
+/* BTN + 10*/
+.pomodoro--btn--add {
+    width: auto;
+    padding: 0 8px;
+
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* botão stop */
+.pomodoro--btn--stop:hover {
+    background: rgba(200, 80, 80, 0.12);
+    color: rgb(200, 80, 80);
+}

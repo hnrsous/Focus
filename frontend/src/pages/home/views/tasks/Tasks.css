@@ -1,0 +1,389 @@
+/* Tasks.css */
+
+.tasks-wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2rem;
+    padding: 1.4rem;
+    background-color: var(--color-bg-main);
+    animation: tasks-enter 0.25s ease;
+}
+
+@keyframes tasks-enter {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tasks-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.4rem;
+}
+
+.tasks-back {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 1.4rem;
+    padding: 1.8rem 1.4rem;
+    background: var(--color-bg-secondary);
+    transition:
+        transform .25s ease,
+        background .25s ease;
+}
+
+.tasks-back:hover {
+    transform: scale(1.05);
+    background: var(--color-bg-hover);
+}
+
+.tasks-back-date {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tasks-back-weekday {
+    font-size: 1.2rem;
+    font-weight: 800;
+    opacity: .7;
+}
+
+.tasks-back-day {
+    letter-spacing: .4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    opacity: 0.4;
+}
+
+/* INPUT + PROGRESSBAR */
+
+.tasks-top-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.tasks-input-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.tasks-input-wrap {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.tasks-input-wrap .tasks-input {
+    width: 100%;
+    padding-right: 48px;
+}
+
+.tasks-input-count {
+    position: absolute;
+    right: 12px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    opacity: 0.35;
+    color: var(--color-text-main);
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.tasks-input {
+    flex: 1;
+    font-size: .8rem;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 1rem 14px;
+    background: var(--color-bg-secondary);
+    transition:
+        background .15s,
+        transform .2s ease;
+}
+
+.tasks-input::placeholder {
+    opacity: 0.35;
+}
+
+.tasks-input:focus {
+    background: var(--color-bg-hover);
+    transform: translateY(-1px);
+}
+
+.tasks-add {
+    height: 44px;
+    width: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg-secondary);
+    transition:
+        transform 0.25s ease,
+        background 0.2s ease;
+}
+
+.tasks-add:hover {
+    transform: scale(1.12);
+    background: var(--color-bg-hover);
+}
+
+/* DIVIDER */
+
+.tasks-divider {
+    height: 2px;
+    background: var(--color-bg-secondary);
+}
+
+/* LIST */
+
+.tasks-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.tasks-empty {
+    text-align: center;
+    font-size: 0.78rem;
+    opacity: 0.3;
+    color: var(--color-text-main);
+    margin-top: 24px;
+}
+
+/* ITEM */
+
+.tasks-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0.4rem 1rem;
+    border-radius: 1rem;
+    transition:
+        background 0.15s,
+        opacity 0.3s,
+        transform 0.2s ease;
+    animation: item-in 0.25s ease both;
+}
+
+@keyframes item-in {
+    from {
+        opacity: 0;
+        transform: translateX(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.tasks-item:hover {
+    background: var(--color-bg-secondary);
+    transform: translateX(4px);
+}
+
+.tasks-item-done .tasks-check,
+.tasks-item-done .tasks-name,
+.tasks-item-done .tasks-actions {
+    opacity: 0.2;
+}
+
+/* CHECKBOX */
+
+.tasks-check {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border: 3.5px solid var(--color-text-main);
+    border-radius: 6px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition:
+        background 0.15s,
+        border-color 0.15s,
+        transform .2s ease,
+        opacity .2s ease;
+    opacity: 0.35;
+}
+
+.tasks-check:hover {
+    opacity: 0.45;
+    transform: scale(1.09);
+}
+
+.tasks-check-active {
+    border-color: var(--color-bg-secondary);
+}
+
+/* NOME */
+
+.tasks-name {
+    flex: 1;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tasks-item-done .tasks-name {
+    text-decoration: line-through;
+}
+
+/* ACTIONS */
+
+.tasks-actions {
+    display: flex;
+    gap: 4px;
+    opacity: .7;
+    transition: opacity .2s ease;
+}
+
+.tasks-item:hover .tasks-actions {
+    opacity: 1;
+}
+
+.tasks-action {
+    cursor: pointer;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: transparent;
+    transition:
+        background 0.15s,
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.tasks-action:hover {
+    transform: scale(1.08);
+}
+
+/* NOTE */
+
+.tasks-action-note:hover {
+    background: rgba(100, 100, 255, 0.08);
+}
+
+.tasks-action-note:hover svg {
+    color: rgb(120, 120, 255);
+    opacity: 1;
+}
+
+/* POMODORO */
+
+.tasks-action-pomodoro:hover {
+    background: rgba(200, 120, 40, 0.08);
+}
+
+.tasks-action-pomodoro:hover svg {
+    color: rgb(200, 140, 60);
+    opacity: 1;
+}
+
+.tasks-action-pomodoro-active {
+    background: linear-gradient(
+        300deg,
+        var(--color-bg-tertiary),
+        var(--color-bg-secondary)
+    );
+}
+
+.tasks-action-pomodoro-active svg {
+    color: rgb(200, 140, 60);
+    opacity: 1;
+}
+
+/* DELETE */
+
+.tasks-action-delete:hover {
+    background: rgba(200, 50, 50, 0.1);
+}
+
+.tasks-action-delete:hover svg {
+    color: rgb(234, 185, 185);
+    opacity: 1;
+}
+
+/* PIN */
+
+.tasks-action-pin:hover {
+    background: var(--color-bg-tertiary);
+}
+
+.tasks-action-pin:hover svg {
+    opacity: 1;
+}
+
+.tasks-action-pin-active {
+    background: linear-gradient(
+        300deg,
+        var(--color-bg-tertiary),
+        var(--color-bg-secondary)
+    );
+}
+
+.tasks-action-pin-active svg {
+    opacity: 1;
+}
+
+/* DRAG HANDLE */
+
+.tasks-drag {
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 4px;
+    border-radius: 8px;
+    background: transparent;
+    opacity: 0.2;
+    transition:
+        opacity 0.2s,
+        background 0.15s;
+    flex-shrink: 0;
+}
+
+.tasks-drag:active {
+    cursor: grabbing;
+}
+
+.tasks-item:hover .tasks-drag {
+    opacity: 0.5;
+}
+
+.tasks-drag:hover {
+    background: var(--color-bg-secondary);
+    opacity: 0.8 !important;
+}

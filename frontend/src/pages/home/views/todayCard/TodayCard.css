@@ -1,0 +1,62 @@
+/* TodayCard.css */
+.today-wrapper {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2.4rem;
+    gap: 1rem;
+    animation: today-enter 0.25s ease;
+}
+
+@keyframes today-enter {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.today-top-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.today-label {
+    font-size: 1.2rem;
+    font-weight: 800;
+    flex: 1;
+    opacity: .4;
+}
+
+.today-count {
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.03rem;
+    color: var(--color-text-main);
+    opacity: 0.4;
+}
+
+.today-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+    gap: 1rem;
+}
+
+.today-weekday {
+    font-size: 3rem;
+    font-weight: 800;
+    opacity: .75;
+}
+
+.today-date {
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0.4;
+}
+
+.today-footer {
+    padding-top: 4px;
+}
